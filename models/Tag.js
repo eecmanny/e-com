@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Ecommerce extends Model {}
+class Tag extends Model {}
 
 Tag.init(
   {
@@ -15,7 +15,7 @@ Tag.init(
       autoIncrement: true
   },
 
-    product_name: {
+    tag_name: {
       type: DataTypes.STRING
     },
   },
@@ -25,7 +25,7 @@ Tag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'ecommerce',
+    modelName: 'Tag',
   }
 );
 

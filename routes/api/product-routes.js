@@ -11,17 +11,17 @@ router.get('/', async (req, res) => {
     const productData = await Product.findAll({
       include: [
           {
-              model: Catagory,
-              attributes: ["catagory_name"],
+              model: Category,
+              // attributes: ["catagory_name"],
           },
-          {
-              model: Tag,
-              attributes: ["product_name"],
-          },
-                  {
-              model: ProductTag,
-              attributes: ["card_number", "reader_id"],
-          },
+          // {
+          //     model: Tag,
+          //     attributes: ["tag_name"],
+          // },
+          //         {
+          //     model: ProductTag,
+          //     attributes: ["product_id", "tag_id"],
+          // },
       ],
   })
     res.status(200).json(productData);
@@ -35,20 +35,20 @@ router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
     try {
-    const categoryData = await Product.findByPk(req.params.id, {
+    const productData = await Product.findByPk(req.params.id, {
       include: [
           {
-              model: Catagory,
-              attributes: ["catagory_name"],
+              model: Category,
+              // attributes: ["catagory_name"],
           },
-                  {
-              model: Tag,
-              attributes: ["product_name"],
-          },
-                  {
-              model: ProductTag,
-              attributes: ["card_number", "reader_id"],
-          },
+          //         {
+          //     model: Tag,
+          //     attributes: ["product_name"],
+          // },
+          //         {
+          //     model: ProductTag,
+          //     attributes: ["card_number", "reader_id"],
+          // },
       ],
   })
     res.status(200).json(productData);
